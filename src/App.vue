@@ -45,6 +45,7 @@
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -56,5 +57,17 @@ export default {
   data: () => ({
     //
   }),
+
+  created () {
+    axios.get('http://localhost:8000/api/match').then(
+      (response) => {
+        console.log(response.data)
+      }
+    ).catch(
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
 };
 </script>
